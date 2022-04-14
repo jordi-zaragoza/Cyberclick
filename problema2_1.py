@@ -20,7 +20,7 @@ def validez_contrasena(minimo, maximo, letra, contrasena):
     return minimo <= contrasena.count(letra) <= maximo
 
 
-def formato_texto(texto):
+def formato_correcto(texto):
     """
     Hace algunas comprobaciones basicas del input
     """
@@ -49,7 +49,7 @@ def validez_politica(texto):
     comprueba la validez de la contraseña respecto a la politica
     """
 
-    if formato_texto(texto):
+    if formato_correcto(texto):
 
         num_min, num_max, letra, contrasena = separador_texto(texto)
 

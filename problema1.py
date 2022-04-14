@@ -14,31 +14,34 @@ def es_multiplo(numero, multiplo):
     return not bool(numero % multiplo)
 
 
-def problema1():
+def problema1():      
     """
     Esta función devuelve el resultado del problema 1
     """
-
+    
     cadena = list(range(1, 100))
-
+    
     cadena_nueva = []
 
     for numero in cadena:
-
-        if es_multiplo(numero, 3) and es_multiplo(numero, 5):
+        
+        multiplo_de_tres = es_multiplo(numero, 3)
+        multiplo_de_cinco = es_multiplo(numero, 5)
+        
+        if multiplo_de_tres and multiplo_de_cinco:
 
             cadena_nueva.append("cyberclick")
 
-        elif es_multiplo(numero, 3):
+        elif multiplo_de_tres:
 
             cadena_nueva.append("cyber")
 
-        elif es_multiplo(numero, 5):
+        elif multiplo_de_cinco:  
 
-            cadena_nueva.append("click")
+            cadena_nueva.append("click")        
 
         else:
 
             cadena_nueva.append(numero)
-
+            
     return cadena_nueva
