@@ -23,9 +23,7 @@ class Texto_input:
         numeros = lista[0].split("-")
         self.primer_numero = int(numeros[0])
         self.segundo_numero = int(numeros[1])
-
         self.letra = lista[1][0]
-
         self.contrasena = lista[2]
 
 
@@ -52,12 +50,7 @@ def validez_politica(texto):
     """
     comprueba la validez de la contraseña respecto a la politica
     """
-    if formato_correcto(texto):
-        return validez_contrasena(Texto_input(texto))
-
-    else:
-        #         print("el texto: , ",texto," no tiene el formato correcto")
-        return False
+    return validez_contrasena(Texto_input(texto)) if formato_correcto(texto) else False
 
 
 def validez_politica_lista(lista_texto):
@@ -78,8 +71,4 @@ def problema2():
     """
     Función de resultado del problema 2 parte 1
     """
-    input_list = cargar_lista()
-
-    contrasenas_validas = validez_politica_lista(input_list)
-
-    return sum(contrasenas_validas)
+    return sum(validez_politica_lista(cargar_lista()))
