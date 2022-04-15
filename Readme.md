@@ -5,6 +5,11 @@ He realizado la prueba en lenguaje Python, para su comodidad he creado un ```jup
 
 He utilizado el castellano (variables y funciones) conscientemente teniendo en cuenta que la entrevista es para una empresa de aquí.
 
+## Requeriments
+- Solo se necesitan librerías preinstaladas de python
+
+Python_version==3.9.5
+
 ### Problema 1
 Para correr el programa directamente en python escriba en el terminal:
 
