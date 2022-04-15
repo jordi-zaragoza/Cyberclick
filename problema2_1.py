@@ -13,10 +13,30 @@ def test1():
     return resultado == validez
 
 
-def validez_contrasena(minimo, maximo, letra, contrasena):
+class Texto_input:
+    def __init__(self,texto):
+        """
+        divide el texto en min,max,letra y contraseña
+        """
+        lista = texto.split(" ")
+
+        numeros = lista[0].split("-")
+        self.primer_numero = int(numeros[0])
+        self.segundo_numero = int(numeros[1])
+
+        self.letra = lista[1][0]
+
+        self.contrasena = lista[2]
+
+
+def validez_contrasena(texto_input):
     """
     comprueba si se cumple la política de repetición de una letra entre un minimo y un maximo numero de veces
     """
+    minimo = texto_input.primer_numero
+    maximo = texto_input.segundo_numero
+    contrasena = texto_input.contrasena
+    letra = texto_input.letra
     return minimo <= contrasena.count(letra) <= maximo
 
 
@@ -51,9 +71,9 @@ def validez_politica(texto):
 
     if formato_correcto(texto):
 
-        num_min, num_max, letra, contrasena = separador_texto(texto)
+        texto_input = Texto_input(texto)
 
-        return validez_contrasena(num_min, num_max, letra, contrasena)
+        return validez_contrasena(texto_input)
 
     else:
 

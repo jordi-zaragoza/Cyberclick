@@ -1,26 +1,47 @@
-# ---------------------------- Problema 2 parte 2 --------------------------
+# ---------------------------- Problema1 2: Parte 1 --------------------------
 
-def test_segunda_parte():
+def test1():
     """
     prueba que el resultado funciona para los ejemplos dados
     True -> Pasa el test
     """
     textos = ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc']
-    validez = [True, False, False]
+    validez = [True, False, True]
 
     resultado = validez_politica_lista(textos)
 
     return resultado == validez
 
 
-def validez_contrasena(primer_numero, segundo_numero, letra, contrasena):
+class Texto_input:
+    def __init__(self,texto):
+        """
+        divide el texto en min,max,letra y contraseña
+        """
+        lista = texto.split(" ")
+
+        numeros = lista[0].split("-")
+        self.primer_numero = int(numeros[0])
+        self.segundo_numero = int(numeros[1])
+
+        self.letra = lista[1][0]
+
+        self.contrasena = lista[2]
+
+
+def validez_contrasena(texto_input):
     """
     comprueba si se cumple la política de posiciones para la letra establecida
     """
+    primer_numero = texto_input.primer_numero
+    segundo_numero = texto_input.segundo_numero
+    contrasena = texto_input.contrasena
+    letra = texto_input.letra
+
     return (letra in contrasena[primer_numero - 1]) ^ (letra in contrasena[segundo_numero - 1])
 
 
-def formato_texto(texto):
+def formato_correcto(texto):
     """
     Hace algunas comprobaciones basicas del input
     """
@@ -49,11 +70,11 @@ def validez_politica(texto):
     comprueba la validez de la contraseña respecto a la politica
     """
 
-    if formato_texto(texto):
+    if formato_correcto(texto):
 
-        num_min, num_max, letra, contrasena = separador_texto(texto)
+        texto_input = Texto_input(texto)
 
-        return validez_contrasena(num_min, num_max, letra, contrasena)
+        return validez_contrasena(texto_input)
 
     else:
 
