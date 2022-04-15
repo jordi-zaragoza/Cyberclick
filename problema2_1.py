@@ -68,15 +68,10 @@ def validez_politica(texto):
     """
     comprueba la validez de la contraseña respecto a la politica
     """
-
     if formato_correcto(texto):
-
-        texto_input = Texto_input(texto)
-
-        return validez_contrasena(texto_input)
+        return validez_contrasena(Texto_input(texto))
 
     else:
-
         #         print("el texto: , ",texto," no tiene el formato correcto")
         return False
 
