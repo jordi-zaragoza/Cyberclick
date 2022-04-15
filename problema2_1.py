@@ -47,23 +47,6 @@ def formato_correcto(texto):
     return texto and texto[0].isnumeric and texto[-1].isalpha() and ("-" in texto) and (":" in texto)
 
 
-def separador_texto(texto):
-    """
-    divide el texto en min,max,letra y contraseña
-    """
-    lista = texto.split(" ")
-
-    numeros = lista[0].split("-")
-    num_min = int(numeros[0])
-    num_max = int(numeros[1])
-
-    letra = lista[1][0]
-
-    contrasena = lista[2]
-
-    return num_min, num_max, letra, contrasena
-
-
 def validez_politica(texto):
     """
     comprueba la validez de la contraseña respecto a la politica
