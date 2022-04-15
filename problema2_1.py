@@ -37,10 +37,7 @@ def validez_politica_lista(lista_texto):
 
 
 def cargar_lista():
-    txt_file = open("input.txt", "r")
-    file_content = txt_file.read()
-    input_list = file_content.split("\n")
-    return input_list
+    return open("input.txt", "r").read().split("\n")
 
 
 def problema2():
