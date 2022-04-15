@@ -3,8 +3,7 @@
 def test1():
     textos = ['1-3 a: abcde', '1-3 b: cdefg', '2-9 c: ccccccccc']
     validez = [True, False, True]
-    resultado = validez_politica_lista(textos)
-    return resultado == validez
+    return validez == validez_politica_lista(textos)
 
 
 class Texto_input:
