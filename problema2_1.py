@@ -6,6 +6,22 @@ def test1():
     return validez == validez_politica_lista(textos)
 
 
+def problema2():
+    return sum(validez_politica_lista(cargar_lista()))
+
+
+def cargar_lista():
+    return open("input.txt", "r").read().split("\n")
+
+
+def validez_politica_lista(lista_texto):
+    return [validez_politica(texto) for texto in lista_texto]
+
+
+def validez_politica(texto):
+    return validez_contrasena(Texto_input(texto)) if formato_correcto(texto) else False
+
+
 class Texto_input:
     def __init__(self, texto):
         lista = texto.split(" ")
@@ -26,19 +42,3 @@ def validez_contrasena(texto_input):
 
 def formato_correcto(texto):
     return texto and texto[0].isnumeric and texto[-1].isalpha() and ("-" in texto) and (":" in texto)
-
-
-def validez_politica(texto):
-    return validez_contrasena(Texto_input(texto)) if formato_correcto(texto) else False
-
-
-def validez_politica_lista(lista_texto):
-    return [validez_politica(texto) for texto in lista_texto]
-
-
-def cargar_lista():
-    return open("input.txt", "r").read().split("\n")
-
-
-def problema2():
-    return sum(validez_politica_lista(cargar_lista()))

@@ -1,9 +1,5 @@
 # ---------------------------- Problema1 1 --------------------------
 
-def es_multiplo(numero, multiplo):
-    return not bool(numero % multiplo)
-
-
 def problema1():
     cadena = list(range(1, 100))
     cadena_nueva = []
@@ -25,3 +21,8 @@ def problema1():
             cadena_nueva.append(numero)
             
     return cadena_nueva
+
+
+def es_multiplo(numero, multiplo):
+    return not bool(numero % multiplo)
+
